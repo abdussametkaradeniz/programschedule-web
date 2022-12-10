@@ -4,16 +4,32 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './index.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import { history } from '../src/features/helpers/history';
+import LoginRegister from "./features/login/LoginRegister"
+import Login from './features/login/Login';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
-
+const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <LoginRegister/>,
+  },
+  {
+    path:"/",
+    element:<div>deneme</div>
+  }
+]);
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <RouterProvider router={router}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </RouterProvider>
   </React.StrictMode>
 );
 
