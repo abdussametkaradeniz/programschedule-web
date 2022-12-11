@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import ChangeAuthMode from './ChangeAuthMode';
 import Login from './Login';
 import Register from './Register';
-
+import { Provider } from 'react-redux';
+import { store } from '../../app/store';
 
 
 export default function LoginRegister() {
@@ -20,14 +21,14 @@ export default function LoginRegister() {
         return (
             <div>
                 <ChangeAuthMode changeAuthMode={changeAuthMode} componentText={componentText} />
-                <Login></Login>
+                <Provider store={store}><Login></Login></Provider>
             </div>
         )
     } else {
         return (
             <div>
                 <ChangeAuthMode changeAuthMode={changeAuthMode} componentText={componentText} />
-                <Register></Register>
+                <Provider store={store}><Register></Register></Provider>
             </div>
         )
     }

@@ -7,20 +7,22 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 import { history } from '../src/features/helpers/history';
-import LoginRegister from "./features/login/LoginRegister"
+import LoginRegister from "./features/login/LoginRegister";
 import Login from './features/login/Login';
+import Mainpage from './features/mainpage';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 const router = createBrowserRouter([
   {
     path: "/login",
-    element: <LoginRegister/>,
+    element: <Provider store={store}><LoginRegister></LoginRegister></Provider> 
   },
   {
     path:"/",
-    element:<div>deneme</div>
+    element:<Mainpage/>
   }
 ]);
 root.render(
