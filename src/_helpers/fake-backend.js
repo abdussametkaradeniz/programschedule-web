@@ -1,7 +1,8 @@
-// array in local storage for registered users
+/* // array in local storage for registered users
 let users = JSON.parse(localStorage.getItem('customer')) || [];
     
 export function configureFakeBackend() {
+    debugger;
     let realFetch = window.fetch;
     window.fetch = function (url, opts) {
         const { method, headers } = opts;
@@ -97,4 +98,4 @@ export function configureFakeBackend() {
             }
         });
     }
-}
+} */
